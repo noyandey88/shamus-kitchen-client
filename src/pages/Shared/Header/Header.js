@@ -19,7 +19,7 @@ const Header = () => {
           </span>
         </Navbar.Brand>
         <div className="flex md:order-2">
-          <Button>
+          <Button className="hidden md:block">
             Get started
           </Button>
           <Navbar.Toggle />
