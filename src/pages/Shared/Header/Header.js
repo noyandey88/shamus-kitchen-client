@@ -1,5 +1,6 @@
 import { Button, Navbar } from 'flowbite-react';
 import React from 'react';
+import { IoRestaurantSharp } from "react-icons/io5";
 
 const Header = () => {
   return (
@@ -7,20 +8,17 @@ const Header = () => {
       <Navbar
         fluid={true}
         rounded={true}
+        className="shadow-md"
       >
         <Navbar.Brand href="https://flowbite.com/">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="mr-3 h-6 sm:h-9"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Flowbite
+          <IoRestaurantSharp className="w-7 h-7 text-teal-600"/>
+          <span className="self-center whitespace-nowrap text-2xl font-bold text-teal-400">
+            Shamu's Kitchen
           </span>
         </Navbar.Brand>
         <div className="flex md:order-2">
-          <Button className="hidden md:block">
-            Get started
+          <Button className="hidden md:block bg-teal-400 hover:bg-teal-500">
+            Login
           </Button>
           <Navbar.Toggle />
         </div>
