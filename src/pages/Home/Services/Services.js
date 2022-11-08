@@ -1,4 +1,6 @@
+import { Button } from 'flowbite-react';
 import React from 'react';
+import { HiOutlineArrowRight } from "react-icons/hi";
 
 const Services = () => {
   return (
@@ -38,13 +40,10 @@ const Services = () => {
                 Sed ut perspiciatis unde omnis iste natus error sit sed quia
                 consequuntur magni voluptatem doloremque.
               </p>
-              <a
-                href="/"
-                aria-label=""
-                className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-              >
-                Learn more
-              </a>
+              <button className="w-full bg-orange-500 text-white py-2 px-2 font-semibold rounded-md hover:bg-orange-600">
+                Details
+                {/* <HiOutlineArrowRight/> */}
+              </button>
             </div>
           </div>
           <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
