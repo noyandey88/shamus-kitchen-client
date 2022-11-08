@@ -125,6 +125,9 @@ const Services = () => {
             </div>
           </div>
         </div>
+        <div className="my-4 text-center">
+          <button className="py-2 px-4 rounded-md text-white bg-orange-500 font-bold">See All</button>
+        </div>
       </div>
     </div>
   );
