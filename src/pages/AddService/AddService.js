@@ -14,14 +14,20 @@ const AddService = () => {
     e.preventDefault();
     const form = e.target;
     console.log(dishInfo);
-    
+
     // add dish to databse
     fetch('http://localhost:5000/services', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
-      }
+      },
+      body: JSON.stringify(dishInfo)
     })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        form.reset();
+      })
   }
   return (
     <div className="w-3/4 mx-auto">
@@ -40,7 +46,7 @@ const AddService = () => {
                 />
               </div>
               <TextInput
-                onChange={(e)=> setDishInfo({...dishInfo, name: e.target.value})}
+                onChange={(e) => setDishInfo({ ...dishInfo, name: e.target.value })}
                 id="name"
                 type="text"
                 name="name"
@@ -58,7 +64,7 @@ const AddService = () => {
                 />
               </div>
               <TextInput
-              onChange={(e)=> setDishInfo({...dishInfo, imageUrl: e.target.value})}
+                onChange={(e) => setDishInfo({ ...dishInfo, imageUrl: e.target.value })}
                 id="image"
                 type="text"
                 name="image"
@@ -76,7 +82,7 @@ const AddService = () => {
                 />
               </div>
               <TextInput
-                onChange={(e)=> setDishInfo({...dishInfo, price: e.target.value})}
+                onChange={(e) => setDishInfo({ ...dishInfo, price: e.target.value })}
                 id="price"
                 type="text"
                 name="price"
@@ -94,7 +100,7 @@ const AddService = () => {
                 />
               </div>
               <TextInput
-              onChange={(e)=> setDishInfo({...dishInfo, ratings: e.target.value})}
+                onChange={(e) => setDishInfo({ ...dishInfo, ratings: e.target.value })}
                 id="rating"
                 type="text"
                 maxLength="3"
@@ -111,7 +117,7 @@ const AddService = () => {
             />
           </div>
           <Textarea
-            onChange={(e)=> setDishInfo({...dishInfo, description: e.target.value})}
+            onChange={(e) => setDishInfo({ ...dishInfo, description: e.target.value })}
             id="description"
             placeholder="Dish description"
             name="description"
