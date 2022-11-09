@@ -1,5 +1,6 @@
 import { Button, Label, Textarea, TextInput } from 'flowbite-react';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
@@ -7,7 +8,41 @@ const ServiceDetails = () => {
   const details = useLoaderData();
   const { _id, name, imageUrl, price, ratings, description } = details.data;
   console.log(details.data);
+
   const { user } = useContext(AuthContext);
+
+  // post review
+  const handleReviewSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    const customerReview = {
+      authorName: user?.displayName,
+      authorEmail: user?.email,
+      authorImage: user?.photoURL,
+      serviceId: _id,
+      reviewText: form.reviewText.value,
+      postedOn: new Date()
+    }
+    // console.log(customerReview)
+    fetch(`http://localhost:5000/services/${_id}`, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(customerReview)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data.data);
+        form.reset();
+        toast.success('Review Posted');
+      })
+      .catch(error => {
+        console.log(error);
+        toast.error(error.message);
+      })
+  }
   return (
     <div>
       {/* details start */}
@@ -48,26 +83,10 @@ const ServiceDetails = () => {
       <hr className="mt-4" />
       <div className="w-3/4 mx-auto">
         <h2 className="text-2xl font-semibold">Post a <span className="text-orange-500 font-bold">Review:</span></h2>
-        <form className="flex flex-col gap-4 my-3">
-          <div>
-            <TextInput
-              type="text"
-              placeholder="Name"
-              defaultValue={user?.displayName}
-              readOnly
-            />
-          </div>
-          <div>
-            <TextInput
-              type="email"
-              placeholder="Email"
-              defaultValue={user?.email}
-              readOnly
-            />
-          </div>
+        <form onSubmit={handleReviewSubmit} className="flex flex-col gap-4 my-3">
           <div>
             <Textarea
-              id="comment"
+              name="reviewText"
               placeholder="Leave a review text..."
               required={true}
               rows={4}
