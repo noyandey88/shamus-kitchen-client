@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
   const [userInfo, setUserInfo] = useState({
@@ -8,10 +9,24 @@ const Login = () => {
     password: ''
   });
 
+  const { loginUser } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(userInfo);
-    toast.success('Successfully logged in');
+    const form = e.target;
+
+    loginUser(userInfo.email, userInfo.password)
+      .then((result) => {
+        const { user } = result;
+        console.log(user);
+        form.reset();
+        toast.success('Successfully logged in');
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error(error.message);
+    })
   } 
   return (
     <div className="flex justify-center my-4">
