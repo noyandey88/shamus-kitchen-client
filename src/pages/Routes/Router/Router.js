@@ -1,11 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddService from "../../AddService/AddService";
+import AllServices from "../../AllServices/AllServices";
 import ErrorPage from "../../ErrorPage/ErrorPage";
 import Home from "../../Home/Home/Home";
 import Main from "../../Layouts/Main";
 import Login from "../../Login/Login";
 import ServiceDetails from "../../ServiceDetails/ServiceDetails";
 import SignUp from "../../SignUp/SignUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -22,8 +24,13 @@ export const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
+        path: '/services',
+        loader: ()=> fetch('http://localhost:5000/services'),
+        element: <AllServices></AllServices>
+      },
+      {
         path: '/addservice',
-        element: <AddService></AddService>
+        element: <PrivateRoute><AddService></AddService></PrivateRoute>
       },
       {
         path: '/services/:id',
@@ -37,7 +44,7 @@ export const router = createBrowserRouter([
       {
         path: '/signup',
         element: <SignUp></SignUp>
-      }
+      },
     ]
   }
 ])

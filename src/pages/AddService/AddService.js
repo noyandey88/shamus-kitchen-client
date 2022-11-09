@@ -1,5 +1,6 @@
 import { Label, Textarea, TextInput } from 'flowbite-react';
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const AddService = () => {
   const [dishInfo, setDishInfo] = useState({
@@ -27,7 +28,8 @@ const AddService = () => {
       .then(data => {
         console.log(data);
         form.reset();
-      })
+        toast.success('Successfully added a dish');
+      });
   }
   return (
     <div className="w-3/4 mx-auto">
