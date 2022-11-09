@@ -1,9 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { IoRestaurantSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { FaUserCircle } from "react-icons/fa";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { logOutUser, user } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogOut = () => {
+    logOutUser()
+      .then(() => {
+        toast.success('Log out user successful')
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(error.message)
+      })
+
+  }
   return (
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 shadow-sm">
       <div className="relative flex grid items-center grid-cols-2 lg:grid-cols-3">
@@ -52,14 +69,25 @@ const Header = () => {
         </Link>
         <ul className="flex items-center hidden ml-auto space-x-8 lg:flex">
           <li>
-            <Link
-              to="/login"
-              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange-500 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none font-semibold"
-              aria-label="Sign up"
-              title="Sign up"
-            >
-              Login
-            </Link>
+            {
+              user?.email ?
+                <div className="flex justify-center items-center gap-4">
+                  <button onClick={handleLogOut} className="inline-flex items-center justify-center h-12 px-6 tracking-wide text-white transition duration-200 rounded shadow-md bg-orange-500 font-semibold">Logout</button>
+                  {
+                    user?.photoURL ?
+                      <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="user" title={user?.displayName} />
+                      :
+                      <FaUserCircle />
+                  }
+                </div>
+                :
+                <Link
+                  to="/login"
+                  className="inline-flex items-center justify-center h-12 px-6 tracking-wide text-white transition duration-200 rounded shadow-md bg-orange-500 font-semibold"
+                >
+                  Login
+                </Link>
+            }
           </li>
         </ul>
         <div className="ml-auto lg:hidden">
@@ -150,14 +178,25 @@ const Header = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        to="/login"
-                        className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-orange-500 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none font-semibold"
-                        aria-label="Sign up"
-                        title="Sign up"
-                      >
-                        Login
-                      </Link>
+                      {
+                        user?.email ?
+                          <div className="flex justify-center items-center gap-4">
+                            <button onClick={handleLogOut} className="inline-flex items-center justify-center h-12 px-6 tracking-wide text-white transition duration-200 rounded shadow-md bg-orange-500 font-semibold">Logout</button>
+                            {
+                              user?.photoURL ?
+                                <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="user" title={user?.displayName} />
+                                :
+                                <FaUserCircle />
+                            }
+                          </div>
+                          :
+                          <Link
+                            to="/login"
+                            className="inline-flex items-center justify-center h-12 px-6 tracking-wide text-white transition duration-200 rounded shadow-md bg-orange-500 font-semibold"
+                          >
+                            Login
+                          </Link>
+                      }
                     </li>
                   </ul>
                 </nav>
