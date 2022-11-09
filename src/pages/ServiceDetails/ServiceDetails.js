@@ -1,11 +1,13 @@
 import { Button, Label, Textarea, TextInput } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const ServiceDetails = () => {
   const details = useLoaderData();
   const { _id, name, imageUrl, price, ratings, description } = details.data;
-  console.log(details.data)
+  console.log(details.data);
+  const { user } = useContext(AuthContext);
   return (
     <div>
       {/* details start */}
@@ -51,12 +53,16 @@ const ServiceDetails = () => {
             <TextInput
               type="text"
               placeholder="Name"
+              defaultValue={user?.displayName}
+              readOnly
             />
           </div>
           <div>
             <TextInput
               type="email"
               placeholder="Email"
+              defaultValue={user?.email}
+              readOnly
             />
           </div>
           <div>

@@ -77,7 +77,7 @@ const Header = () => {
                     user?.photoURL ?
                       <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="user" title={user?.displayName} />
                       :
-                      <FaUserCircle />
+                      <FaUserCircle className="w-12 h-12 rounded-full" />
                   }
                 </div>
                 :
@@ -186,7 +186,7 @@ const Header = () => {
                               user?.photoURL ?
                                 <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="user" title={user?.displayName} />
                                 :
-                                <FaUserCircle />
+                                <FaUserCircle className="w-12 h-12 rounded-full" />
                             }
                           </div>
                           :
