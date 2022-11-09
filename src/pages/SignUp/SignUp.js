@@ -1,32 +1,73 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const SignUp = () => {
+
+  const [userInfo, setUserInfo] = useState({
+    UserName: '',
+    photoUrl: '',
+    UserEmail: '',
+    UserPassword: '',
+  });
+
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(userInfo);
+    const form = e.target;
+
+    // sign up
+    createUser(userInfo.UserEmail, userInfo.UserPassword)
+      .then((result) => {
+        const { user } = result;
+        console.log(user);
+        
+        // update user profile
+        updateUserProfile(userInfo.UserName, userInfo.photoUrl)
+          .then(() => {
+            toast.success('User Updated')
+          })
+          .catch((error) => {
+            toast.error(error.message);
+          })
+
+        form.reset();
+        toast.success('Sign Up Successful')
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error(error.message)
+      })
+  };
+
   return (
     <div>
       <div className="flex justify-center my-4">
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-orange-100">
           <h1 className="text-2xl font-bold text-center">Sign Up</h1>
-          <form className="space-y-6 ng-untouched ng-pristine ng-valid">
+          <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
             {/* user name */}
             <div className="space-y-1 text-sm">
-              <label for="name" className="block dark:text-gray-400">Name</label>
-              <input type="name" name="name" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md border-2 border-gray-500" />
+              <label htmlFor="name" className="block dark:text-gray-400">Name</label>
+              <input onChange={(e) => setUserInfo({ ...userInfo, UserName: e.target.value })} type="name" name="name" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md border-2 border-gray-500" />
             </div>
             {/* photo url */}
             <div className="space-y-1 text-sm">
-              <label for="photoUrl" className="block dark:text-gray-400">Photo URL</label>
-              <input type="photoUrl" name="photoUrl" id="photoUrl" placeholder="Photo URL" className="w-full px-4 py-3 rounded-md border-2 border-gray-500" />
+              <label htmlFor="photoUrl" className="block dark:text-gray-400">Photo URL</label>
+              <input onChange={(e) => setUserInfo({ ...userInfo, photoUrl: e.target.value })} type="photoUrl" name="photoUrl" id="photoUrl" placeholder="Photo URL" className="w-full px-4 py-3 rounded-md border-2 border-gray-500" />
             </div>
             {/* email */}
             <div className="space-y-1 text-sm">
-              <label for="email" className="block dark:text-gray-400">Email</label>
-              <input type="email" name="email" id="email" placeholder="Email" className="w-full px-4 py-3 border-2 rounded-md border-gray-500" />
+              <label htmlFor="email" className="block dark:text-gray-400">Email</label>
+              <input onChange={(e)=> setUserInfo({...userInfo, UserEmail: e.target.value})} type="email" name="email" id="email" placeholder="Email" className="w-full px-4 py-3 border-2 rounded-md border-gray-500" />
             </div>
             {/* password */}
             <div className="space-y-1 text-sm">
-              <label for="password" className="block dark:text-gray-400">Password</label>
-              <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 border-2 py-3 rounded-md border-gray-500" />
+              <label htmlFor="password" className="block dark:text-gray-400">Password</label>
+              <input onChange={(e) => setUserInfo({ ...userInfo, UserPassword: e.target.value })} type="password" name="password" id="password" placeholder="Password" className="w-full px-4 border-2 py-3 rounded-md border-gray-500" />
             </div>
             <button className="block w-full p-3 text-center rounded-md bg-orange-500 text-white font-semibold">Sign Up</button>
           </form>

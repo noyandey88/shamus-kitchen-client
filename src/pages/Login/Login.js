@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
@@ -9,7 +10,8 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log(userInfo);
+    toast.success('Successfully logged in');
   } 
   return (
     <div className="flex justify-center my-4">
@@ -17,14 +19,14 @@ const Login = () => {
         <h1 className="text-2xl font-bold text-center">Login</h1>
         <form onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
           <div className="space-y-1 text-sm">
-            <label for="email" className="block dark:text-gray-400">Email</label>
+            <label htmlFor="email" className="block dark:text-gray-400">Email</label>
             <input onChange={(e)=> setUserInfo({...userInfo, email: e.target.value})} type="email" name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md border-2 border-gray-500" />
           </div>
           <div className="space-y-1 text-sm">
-            <label for="password" className="block dark:text-gray-400">Password</label>
+            <label htmlFor="password" className="block dark:text-gray-400">Password</label>
             <input onChange={(e)=> setUserInfo({...userInfo, password: e.target.value})} type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-2 border-gray-500" />
             <div className="flex justify-end text-xs dark:text-gray-400">
-              <Link rel="noopener noreferrer" to="/">Forgot Password?</Link>
+              <Link rel="noopener noreferrer" to="/">htmlForgot Password?</Link>
             </div>
           </div>
           <button className="block w-full p-3 text-center rounded-md bg-orange-500 text-white font-semibold">Login</button>
