@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
@@ -8,6 +8,10 @@ const Login = () => {
     email: '',
     password: ''
   });
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const { loginUser, loginWithGoogle } = useContext(AuthContext);
 
@@ -22,6 +26,7 @@ const Login = () => {
         console.log(user);
         form.reset();
         toast.success('Successfully logged in');
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
@@ -35,13 +40,13 @@ const Login = () => {
         const { user } = result;
         console.log(user);
         toast.success('Google Sign Up Successful');
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
         toast.error(error.message);
       })
   };
-
 
   return (
     <div className="flex justify-center my-4">
@@ -56,7 +61,7 @@ const Login = () => {
             <label htmlFor="password" className="block dark:text-gray-400">Password</label>
             <input onChange={(e) => setUserInfo({ ...userInfo, password: e.target.value })} type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border-2 border-gray-500" />
             <div className="flex justify-end text-xs dark:text-gray-400">
-              <Link rel="noopener noreferrer" to="/">htmlForgot Password?</Link>
+              <Link rel="noopener noreferrer" to="/">Forgot Password?</Link>
             </div>
           </div>
           <button className="block w-full p-3 text-center rounded-md bg-orange-500 text-white font-semibold">Login</button>
