@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Service = ({ service }) => {
-  const { name, imageUrl, price, ratings, description } = service;
+  const { _id, name, imageUrl, price, ratings, description } = service;
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/services/${_id}`);
+  }
+
   return (
     <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
       <img
@@ -24,7 +31,7 @@ const Service = ({ service }) => {
           <p className="text-xl font-medium text-gray-700">Ratings: {ratings}</p>
         </div>
 
-        <button className="w-full bg-orange-500 text-white py-2 px-2 font-semibold rounded-md hover:bg-orange-600">
+        <button onClick={handleNavigate} className="w-full bg-orange-500 text-white py-2 px-2 font-semibold rounded-md hover:bg-orange-600">
           Details
           {/* <HiOutlineArrowRight/> */}
         </button>
