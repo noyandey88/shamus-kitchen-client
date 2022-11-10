@@ -1,8 +1,8 @@
 import React from 'react';
 import { FaUserCircle } from "react-icons/fa";
 
-const AuthorReviews = ({ review }) => {
-  const { reviewText, postedOn, authorName, authorImage } = review;
+const AuthorReviews = ({ review, handleDeleteReview }) => {
+  const { _id, reviewText, postedOn, authorName, authorImage } = review;
   return (
     <div className="border-2 border-orange-100 rounded-md flex items-center p-4 flex-col lg:flex-row justify-between gap-4 shadow-md">
       <div>
@@ -20,7 +20,7 @@ const AuthorReviews = ({ review }) => {
       </div>
       <div className="flex items-center gap-4">
         <button className="px-4 py-1 bg-orange-500 text-white rounded-md font-semibold">Edit</button>
-        <button className="px-4 py-1 bg-orange-500 text-white rounded-md font-semibold">Delete</button>
+        <button onClick={()=> handleDeleteReview(_id)} className="px-4 py-1 bg-orange-500 text-white rounded-md font-semibold">Delete</button>
       </div>
     </div>
   );
