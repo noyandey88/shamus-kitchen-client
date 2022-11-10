@@ -33,7 +33,7 @@ const Login = () => {
           email: user.email
         }
         // get jwt token
-        fetch('http://localhost:5000/jwt', {
+        fetch('https://cloud-kitchen-assignment-server.vercel.app/jwt', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'
@@ -63,7 +63,7 @@ const Login = () => {
         console.log(user);
 
         setAuthToken(user);
-        
+
         navigate(from, { replace: true });
         toast.success('Google Sign in Successful');
         navigate(from, { replace: true });

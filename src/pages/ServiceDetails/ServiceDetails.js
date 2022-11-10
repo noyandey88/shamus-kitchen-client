@@ -31,7 +31,7 @@ const ServiceDetails = () => {
       postedOn: new Date()
     }
 
-    fetch('http://localhost:5000/reviews', {
+    fetch('https://cloud-kitchen-assignment-server.vercel.app/reviews', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

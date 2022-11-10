@@ -4,7 +4,7 @@ import Review from '../Review/Review';
 const Reviews = ({ id }) => {
   const [postedReviews, setPostedReviews] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/reviews')
+    fetch('https://cloud-kitchen-assignment-server.vercel.app/reviews')
       .then(res => res.json())
       .then(data => {
         console.log(data);

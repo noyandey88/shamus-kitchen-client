@@ -20,7 +20,7 @@ const AddService = () => {
     console.log(dishInfo);
 
     // add dish to databse
-    fetch('http://localhost:5000/services', {
+    fetch('https://cloud-kitchen-assignment-server.vercel.app/services', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

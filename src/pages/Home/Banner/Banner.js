@@ -19,7 +19,7 @@ const Banner = () => {
             />
           </div>
           <div className='absolute'>
-            <h2 className='text-white text-8xl font-bold uppercase'>
+            <h2 className='text-white text-4xl text-center lg:text-7xl font-bold uppercase'>
               Enjoy Your Food At <br />
               <span className='text-orange-400'>Shamu's Kitchen</span></h2>
           </div>
@@ -32,8 +32,8 @@ const Banner = () => {
             />
           </div>
           <div className='absolute'>
-            <h2 className='text-white text-8xl font-bold uppercase'>
-              You Favorite Foods in <br />
+            <h2 className='text-white text-4xl text-center lg:text-7xl font-bold uppercase'>
+              Your Favorite Foods in <br />
               <span className='text-orange-400'>Shamu's Kitchen</span></h2>
           </div>
         </div>
@@ -45,7 +45,7 @@ const Banner = () => {
             />
           </div>
           <div className='absolute'>
-            <h2 className='text-white text-8xl font-bold uppercase'>
+            <h2 className='text-white text-4xl text-center lg:text-7xl font-bold uppercase'>
               Delicious Foods Are at <br />
               <span className='text-orange-400'>Shamu's Kitchen</span></h2>
           </div>
@@ -58,7 +58,7 @@ const Banner = () => {
             />
           </div>
           <div className='absolute'>
-            <h2 className='text-white text-8xl font-bold uppercase'>
+            <h2 className='text-white text-4xl text-center lg:text-7xl font-bold uppercase'>
               Chinese, Indian or Other Foods are in<br />
               <span className='text-orange-400'>Shamu's Kitchen</span></h2>
           </div>
@@ -71,8 +71,8 @@ const Banner = () => {
             />
           </div>
           <div className='absolute'>
-            <h2 className='text-white text-8xl font-bold uppercase'>
-              Got Bonus Food At Buy Specific Ttems In <br />
+            <h2 className='text-white text-4xl text-center lg:text-7xl font-bold uppercase'>
+              Your Requested Food Items IN<br />
               <span className='text-orange-400'>Shamu's Kitchen</span></h2>
           </div>
         </div>

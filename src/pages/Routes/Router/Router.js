@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/services',
-        loader: ()=> fetch('http://localhost:5000/services'),
+        loader: () => fetch('https://cloud-kitchen-assignment-server.vercel.app/services'),
         element: <AllServices></AllServices>
       },
       {
@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/services/:id',
-        loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`),
+        loader: ({ params }) => fetch(`https://cloud-kitchen-assignment-server.vercel.app/services/${params.id}`),
         element: <ServiceDetails></ServiceDetails>
       },
       {
@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/reviewsupdate/:id',
-        loader: ({params})=> fetch(`http://localhost:5000/reviews/${params.id}`),
+        loader: ({ params }) => fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews/${params.id}`),
         element: <PrivateRoute><EditReview></EditReview></PrivateRoute>
       }
     ]

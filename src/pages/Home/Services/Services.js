@@ -12,7 +12,7 @@ const Services = () => {
   useTitle('Foods');
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services?size=${size}`)
+    fetch(`https://cloud-kitchen-assignment-server.vercel.app/services?size=${size}`)
       .then(res => res.json())
       .then(data => {
         console.log(data.data);

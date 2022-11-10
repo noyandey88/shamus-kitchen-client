@@ -22,7 +22,7 @@ const MyReviews = () => {
   useTitle('My Reviews');
 
   useEffect(() => {
-    fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+    fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews?email=${user?.email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem('authToken')}`
       }
@@ -42,7 +42,7 @@ const MyReviews = () => {
   // delete review button
   const handleDeleteReview = (id) => {
     // console.log(id);
-    fetch(`http://localhost:5000/reviews/${id}`, {
+    fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews/${id}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
