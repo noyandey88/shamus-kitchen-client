@@ -1,6 +1,11 @@
 import React from 'react';
+import useTitle from '../../Hooks/useTitle';
 
 const Blogs = () => {
+  
+  // update page title
+  useTitle('Blogs');
+
   return (
     <section className="dark:bg-gray-800 dark:text-gray-100">
       <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
@@ -22,7 +27,7 @@ const Blogs = () => {
           <div className="py-6 space-y-2 md:grid md:grid-cols-12 md:gap-8 md:space-y-0">
             <h3 className="font-semibold md:col-span-5">What is difference between JavaScript and NodeJs?</h3>
             <p className="md:pl-0 md:col-span-7">
-            Javascript is a Scripting language. It is mostly abbreviated as JS. It can be said that Javascript is the updated version of the ECMA script. Javascript is a high-level programming language that uses the concept of Oops but it is based on prototype inheritance. NodeJS is a cross-platform and opensource Javascript runtime environment that allows the javascript to be run on the server-side. Nodejs allows Javascript code to run outside the browser. Nodejs comes with a lot of modules and mostly used in web development. JavaScript is basically used on the client-side. NodeJs is mostly used on the server-side. Javascript is capable enough to add HTML and play with the DOM. Nodejs does not have capability to add HTML tags. Javascript is used in frontend development. Nodejs is used in server-side development.
+              Javascript is a Scripting language. It is mostly abbreviated as JS. It can be said that Javascript is the updated version of the ECMA script. Javascript is a high-level programming language that uses the concept of Oops but it is based on prototype inheritance. NodeJS is a cross-platform and opensource Javascript runtime environment that allows the javascript to be run on the server-side. Nodejs allows Javascript code to run outside the browser. Nodejs comes with a lot of modules and mostly used in web development. JavaScript is basically used on the client-side. NodeJs is mostly used on the server-side. Javascript is capable enough to add HTML and play with the DOM. Nodejs does not have capability to add HTML tags. Javascript is used in frontend development. Nodejs is used in server-side development.
             </p>
           </div>
           <div className="py-6 space-y-2 md:grid md:grid-cols-12 md:gap-8 md:space-y-0">

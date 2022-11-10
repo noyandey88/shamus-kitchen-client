@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { setAuthToken } from '../../Api/Auth';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 
 const SignUp = () => {
 
@@ -13,6 +14,8 @@ const SignUp = () => {
     UserPassword: '',
   });
 
+  useTitle('Sign Up');
+  
   const { createUser, updateUserProfile, loginWithGoogle } = useContext(AuthContext);
 
   const handleSubmit = (e) => {

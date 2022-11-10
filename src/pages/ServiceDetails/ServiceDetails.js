@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 import Reviews from '../Reviews/Reviews';
 
 const ServiceDetails = () => {
@@ -12,6 +13,9 @@ const ServiceDetails = () => {
 
   const { user } = useContext(AuthContext);
   const location = useLocation();
+
+  // update page title
+  useTitle('Food Service Details');
 
   // post review
   const handleReviewSubmit = (e) => {
@@ -26,7 +30,7 @@ const ServiceDetails = () => {
       reviewText: form.reviewText.value,
       postedOn: new Date()
     }
-    
+
     fetch('http://localhost:5000/reviews', {
       method: 'POST',
       headers: {
@@ -34,12 +38,12 @@ const ServiceDetails = () => {
       },
       body: JSON.stringify(customerReview)
     })
-    .then(res => res.json())
+      .then(res => res.json())
       .then(data => {
         console.log(data);
         form.reset();
         toast.success('Posted');
-    })
+      })
   }
   return (
     <div>
@@ -110,7 +114,7 @@ const ServiceDetails = () => {
           </>
           :
           <>
-            <h2 className="text-2xl font-semibold text-center my-2">Please <span className="text-orange-500 font-bold"><Link to="/login" state={{from: location}}>Login</Link></span> to post review</h2>
+            <h2 className="text-2xl font-semibold text-center my-2">Please <span className="text-orange-500 font-bold"><Link to="/login" state={{ from: location }}>Login</Link></span> to post review</h2>
           </>
       }
     </div>

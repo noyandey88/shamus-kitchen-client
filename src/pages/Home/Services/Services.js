@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useTitle from '../../../Hooks/useTitle';
 import Service from '../../Service/Service';
 
 const Services = () => {
   const [dishServices, setDishServices] = useState([]);
   const navigate = useNavigate();
   const size = 3;
-  
+
+  // update page title
+  useTitle('Foods');
+
   useEffect(() => {
     fetch(`http://localhost:5000/services?size=${size}`)
       .then(res => res.json())

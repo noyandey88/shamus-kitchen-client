@@ -1,8 +1,13 @@
 import React from 'react';
 import { FaUserCircle } from "react-icons/fa";
+import useTitle from '../../Hooks/useTitle';
 
 const AuthorReviews = ({ review, handleDeleteReview }) => {
+
   const { _id, reviewText, postedOn, authorName, authorImage } = review;
+  // update page title
+  useTitle('Author Reviews');
+
   return (
     <div className="border-2 border-orange-100 rounded-md flex items-center p-4 flex-col lg:flex-row justify-between gap-4 shadow-md">
       <div>

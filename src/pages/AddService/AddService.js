@@ -1,6 +1,7 @@
 import { Label, Textarea, TextInput } from 'flowbite-react';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import useTitle from '../../Hooks/useTitle';
 
 const AddService = () => {
   const [dishInfo, setDishInfo] = useState({
@@ -10,6 +11,8 @@ const AddService = () => {
     ratings: '',
     description: ''
   });
+  // update page title
+  useTitle('Add Foods Services');
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -25,6 +25,16 @@ const Header = () => {
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 shadow-sm">
       <div className="relative flex grid items-center grid-cols-2 lg:grid-cols-3">
         <ul className="flex items-center hidden space-x-8 lg:flex">
+          <li>
+            <Link
+              to="/home"
+              aria-label="Our product"
+              title="Our product"
+              className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+            >
+              Home
+            </Link>
+          </li>
           {
             user?.uid &&
             <>
@@ -154,24 +164,39 @@ const Header = () => {
                   <ul className="space-y-4">
                     <li>
                       <Link
-                        to="/myreviews"
+                        to="/home"
                         aria-label="Our product"
                         title="Our product"
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                       >
-                        My Reviews
+                        Home
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        to="/addservice"
-                        aria-label="Our product"
-                        title="Our product"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                      >
-                        Add Service
-                      </Link>
-                    </li>
+                    {
+                      user?.uid &&
+                      <>
+                        <li>
+                          <Link
+                            to="/myreviews"
+                            aria-label="Our product"
+                            title="Our product"
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          >
+                            My Reviews
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/addservice"
+                            aria-label="Our product"
+                            title="Our product"
+                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                          >
+                            Add Service
+                          </Link>
+                        </li>
+                      </>
+                    }
                     <li>
                       <Link
                         to="/blogs"
