@@ -3,10 +3,11 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import Review from '../Review/Review';
 
 const ServiceDetails = () => {
   const details = useLoaderData();
-  const { _id, name, imageUrl, price, ratings, description } = details.data;
+  const { _id, name, imageUrl, price, ratings, description, customerReview: reviews } = details.data;
   console.log(details.data);
 
   const { user } = useContext(AuthContext);
@@ -76,6 +77,22 @@ const ServiceDetails = () => {
         </div>
       </div>
       {/* details end */}
+
+      {/* all reviews */}
+      <div className="w-3/4 mx-auto">
+        <h2 className="text-2xl font-semibold">All <span className="text-orange-500 font-bold">Reviews:</span></h2>
+      </div>
+      <hr className="my-4" />
+      <div className="w-full p-2 lg:p-0 lg:w-3/4 mx-auto">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+          {
+            reviews.map(review => <Review
+              key={review.serviceId}
+              review={review}
+            ></Review>)
+          }
+        </div>
+      </div>
       {/* review section start */}
       <div className="text-center mt-4">
         <h1 className="text-4xl font-semibold">Customer <span className="text-orange-500 font-bold">Reviews</span></h1>
