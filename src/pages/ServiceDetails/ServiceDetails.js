@@ -8,7 +8,7 @@ import Reviews from '../Reviews/Reviews';
 const ServiceDetails = () => {
   const details = useLoaderData();
   const { _id, name, imageUrl, price, ratings, description } = details.data;
-  console.log(details.data);
+  // console.log(details.data);
 
   const { user } = useContext(AuthContext);
   const location = useLocation();
@@ -26,24 +26,20 @@ const ServiceDetails = () => {
       reviewText: form.reviewText.value,
       postedOn: new Date()
     }
-    // console.log(customerReview)
-    fetch(`http://localhost:5000/services/${_id}`, {
-      method: 'PUT',
+    
+    fetch('http://localhost:5000/reviews', {
+      method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
       body: JSON.stringify(customerReview)
     })
-      .then(res => res.json())
+    .then(res => res.json())
       .then(data => {
-        console.log(data.data);
+        console.log(data);
         form.reset();
-        toast.success('Review Posted');
-      })
-      .catch(error => {
-        console.log(error);
-        toast.error(error.message);
-      })
+        toast.success('Posted');
+    })
   }
   return (
     <div>

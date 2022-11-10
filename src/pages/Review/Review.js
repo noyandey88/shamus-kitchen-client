@@ -3,7 +3,7 @@ import { FaUserCircle } from "react-icons/fa";
 
 const Review = ({ review }) => {
   console.log(review);
-  const { serviceId, reviewText, postedOn, authorName, authorImage, authorEmail } = review;
+  const { reviewText, postedOn, authorName, authorImage } = review;
   return (
     <div className="border-2 border-orange-300 rounded-md flex items-center p-4">
       <div>

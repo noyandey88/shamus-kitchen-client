@@ -4,19 +4,21 @@ import Review from '../Review/Review';
 const Reviews = ({id}) => {
   const [postedReviews, setPostedReviews] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${id}`)
+    fetch(`http://localhost:5000/reviews`)
       .then(res => res.json())
       .then(data => {
-        console.log(data.data.customerReview);
-        setPostedReviews(data.data.customerReview)
+        console.log(data);
+        // setPostedReviews(data)
+        const filteredReviews = data.filter(review => review.serviceId === id);
+        setPostedReviews(filteredReviews)
     })
-  }, [postedReviews])
+  }, [])
   return (
     <div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
           {
             postedReviews.map(review => <Review
-              key={review.serviceId}
+              key={review._id}
               review={review}
             ></Review>)
           }
