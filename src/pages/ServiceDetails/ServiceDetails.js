@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import Review from '../Review/Review';
+import Reviews from '../Reviews/Reviews';
 
 const ServiceDetails = () => {
   const details = useLoaderData();
@@ -84,14 +85,7 @@ const ServiceDetails = () => {
       </div>
       <hr className="my-4" />
       <div className="w-full p-2 lg:p-0 lg:w-3/4 mx-auto">
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
-          {
-            reviews.map(review => <Review
-              key={review.serviceId}
-              review={review}
-            ></Review>)
-          }
-        </div>
+        <Reviews id={_id}></Reviews>
       </div>
       {/* review section start */}
       <div className="text-center mt-4">
