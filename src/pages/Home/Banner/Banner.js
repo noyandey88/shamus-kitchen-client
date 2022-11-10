@@ -33,7 +33,7 @@ const Banner = () => {
           </div>
           <div className='absolute'>
             <h2 className='text-white text-8xl font-bold uppercase'>
-              Enjoy Your Food At <br />
+              You Favorite Foods in <br />
               <span className='text-orange-400'>Shamu's Kitchen</span></h2>
           </div>
         </div>
@@ -46,7 +46,7 @@ const Banner = () => {
           </div>
           <div className='absolute'>
             <h2 className='text-white text-8xl font-bold uppercase'>
-              Enjoy Your Food At <br />
+              Delicious Foods Are at <br />
               <span className='text-orange-400'>Shamu's Kitchen</span></h2>
           </div>
         </div>
@@ -59,7 +59,7 @@ const Banner = () => {
           </div>
           <div className='absolute'>
             <h2 className='text-white text-8xl font-bold uppercase'>
-              Enjoy Your Food At <br />
+              Chinese, Indian or Other Foods are in<br />
               <span className='text-orange-400'>Shamu's Kitchen</span></h2>
           </div>
         </div>
@@ -72,7 +72,7 @@ const Banner = () => {
           </div>
           <div className='absolute'>
             <h2 className='text-white text-8xl font-bold uppercase'>
-              Enjoy Your Food At <br />
+              Got Bonus Food At Buy Specific Ttems In <br />
               <span className='text-orange-400'>Shamu's Kitchen</span></h2>
           </div>
         </div>

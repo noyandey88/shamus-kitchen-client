@@ -54,8 +54,7 @@ const MyReviews = () => {
         const remaining = reviews.filter(review => review._id !== id);
         setReviews(remaining);
       })
-
-  }
+  };
 
   return (
     <div>

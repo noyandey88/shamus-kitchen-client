@@ -1,12 +1,18 @@
 import React from 'react';
 import { FaUserCircle } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 import useTitle from '../../Hooks/useTitle';
 
 const AuthorReviews = ({ review, handleDeleteReview }) => {
 
   const { _id, reviewText, postedOn, authorName, authorImage } = review;
+  const navigate = useNavigate();
   // update page title
   useTitle('Author Reviews');
+
+  const handleNavigate = () => {
+    navigate(`/reviewsupdate/${_id}`);
+  }
 
   return (
     <div className="border-2 border-orange-100 rounded-md flex items-center p-4 flex-col lg:flex-row justify-between gap-4 shadow-md">
@@ -24,7 +30,7 @@ const AuthorReviews = ({ review, handleDeleteReview }) => {
         <p className="text-xs lg:text-xl font-medium">{reviewText}</p>
       </div>
       <div className="flex items-center gap-4">
-        <button className="px-4 py-1 bg-orange-500 text-white rounded-md font-semibold">Edit</button>
+        <button onClick={handleNavigate} className="px-4 py-1 bg-orange-500 text-white rounded-md font-semibold">Edit</button>
         <button onClick={()=> handleDeleteReview(_id)} className="px-4 py-1 bg-orange-500 text-white rounded-md font-semibold">Delete</button>
       </div>
     </div>
