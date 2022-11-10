@@ -1,7 +1,7 @@
 ### Project Name
  # **Shamu's Kitchen Assignment Client**
 
-### **Live Website:** **<https://programming-library-assignment.web.app/>**
+### **Live Website:** **<https://cloud-kitchen-assignment.web.app/>**
 
 ### Technologies i used in this project:
 * ### React Router 

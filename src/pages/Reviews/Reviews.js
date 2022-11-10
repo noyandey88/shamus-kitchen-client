@@ -12,10 +12,10 @@ const Reviews = ({ id }) => {
         const filteredReviews = data.filter(review => review.serviceId === id);
         setPostedReviews(filteredReviews);
       })
-  }, []);
+  }, [id]);
 
   return (
-    <div> 
+    <div>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
         {
           postedReviews.map(review => <Review

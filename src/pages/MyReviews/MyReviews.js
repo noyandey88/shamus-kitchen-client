@@ -8,6 +8,16 @@ const MyReviews = () => {
   const { user, logOutUser } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
+  const logOut = () => {
+    logOutUser()
+      .then(() => {
+
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   // update page title
   useTitle('My Reviews');
 
@@ -19,13 +29,7 @@ const MyReviews = () => {
     })
       .then(res => {
         if (res.status === 401 || res.status === 403) {
-          logOutUser()
-            .then(() => {
-
-            })
-            .catch((error) => {
-              console.log(error)
-            })
+          logOut();
         }
         return res.json()
       })
@@ -33,7 +37,7 @@ const MyReviews = () => {
         console.log(data);
         setReviews(data);
       })
-  }, [user?.email])
+  }, [user?.email]);
 
   // delete review button
   const handleDeleteReview = (id) => {
