@@ -14,22 +14,22 @@ const TopReviewed = () => {
       <div className="grid max-w-screen-lg gap-8 row-gap-5 mb-8 sm:grid-cols-2 lg:grid-cols-4 sm:mx-auto">
         <img
           className="object-cover w-full h-56 rounded shadow-lg"
-          src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+          src="https://i.ibb.co/TbPHBRG/pexels-antony-trivet-12842265.jpg"
           alt=""
         />
         <img
           className="object-cover w-full h-56 rounded shadow-lg"
-          src="https://images.pexels.com/photos/3182746/pexels-photo-3182746.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+          src="https://i.ibb.co/NZzWxQ8/salmon-fish.jpg"
           alt=""
         />
         <img
           className="object-cover w-full h-56 rounded shadow-lg"
-          src="https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
+          src="https://i.ibb.co/0JR326j/pexels-shourav-sheikh-11170284.jpg"
           alt=""
         />
         <img
           className="object-cover w-full h-56 rounded shadow-lg"
-          src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+          src="https://i.ibb.co/qdJjxQ4/pexels-prabal-pratap-singh-9609835.jpg"
           alt=""
         />
       </div>
