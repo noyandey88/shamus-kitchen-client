@@ -1,17 +1,17 @@
-import { Button, Label, Textarea, TextInput } from 'flowbite-react';
-import React, { useContext, useState } from 'react';
+import { Textarea } from 'flowbite-react';
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
-import Review from '../Review/Review';
 import Reviews from '../Reviews/Reviews';
 
 const ServiceDetails = () => {
   const details = useLoaderData();
-  const { _id, name, imageUrl, price, ratings, description, customerReview: reviews } = details.data;
+  const { _id, name, imageUrl, price, ratings, description } = details.data;
   console.log(details.data);
 
   const { user } = useContext(AuthContext);
+  const location = useLocation();
 
   // post review
   const handleReviewSubmit = (e) => {
@@ -79,6 +79,9 @@ const ServiceDetails = () => {
       </div>
       {/* details end */}
 
+      <div className="text-center mt-4">
+        <h1 className="text-4xl font-semibold">Customer <span className="text-orange-500 font-bold">Reviews</span></h1>
+      </div>
       {/* all reviews */}
       <div className="w-3/4 mx-auto">
         <h2 className="text-2xl font-semibold">All <span className="text-orange-500 font-bold">Reviews:</span></h2>
@@ -88,26 +91,32 @@ const ServiceDetails = () => {
         <Reviews id={_id}></Reviews>
       </div>
       {/* review section start */}
-      <div className="text-center mt-4">
-        <h1 className="text-4xl font-semibold">Customer <span className="text-orange-500 font-bold">Reviews</span></h1>
-      </div>
       <hr className="mt-4" />
-      <div className="w-3/4 mx-auto">
-        <h2 className="text-2xl font-semibold">Post a <span className="text-orange-500 font-bold">Review:</span></h2>
-        <form onSubmit={handleReviewSubmit} className="flex flex-col gap-4 my-3">
-          <div>
-            <Textarea
-              name="reviewText"
-              placeholder="Leave a review text..."
-              required={true}
-              rows={4}
-            />
-          </div>
-          <button className="w-full py-2 bg-orange-500 text-white font-semibold rounded-md" type="submit">
-            Post
-          </button>
-        </form>
-      </div>
+      {
+        user?.uid ?
+          <>
+            <div className="w-3/4 mx-auto">
+              <h2 className="text-2xl font-semibold">Post a <span className="text-orange-500 font-bold">Review:</span></h2>
+              <form onSubmit={handleReviewSubmit} className="flex flex-col gap-4 my-3">
+                <div>
+                  <Textarea
+                    name="reviewText"
+                    placeholder="Leave a review text..."
+                    required={true}
+                    rows={4}
+                  />
+                </div>
+                <button className="w-full py-2 bg-orange-500 text-white font-semibold rounded-md" type="submit">
+                  Post
+                </button>
+              </form>
+            </div>
+          </>
+          :
+          <>
+            <h2 className="text-2xl font-semibold text-center my-2">Please <span className="text-orange-500 font-bold"><Link to="/login" state={{from: location}}>Login</Link></span> to post review</h2>
+          </>
+      }
     </div>
   );
 };
