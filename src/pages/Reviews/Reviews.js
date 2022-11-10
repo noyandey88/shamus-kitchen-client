@@ -10,7 +10,7 @@ const Reviews = ({id}) => {
         console.log(data);
         // setPostedReviews(data)
         const filteredReviews = data.filter(review => review.serviceId === id);
-        setPostedReviews(filteredReviews)
+        setPostedReviews(filteredReviews);
     })
   }, [])
   return (
