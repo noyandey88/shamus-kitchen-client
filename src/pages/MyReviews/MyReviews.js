@@ -23,7 +23,7 @@ const MyReviews = () => {
       {
         reviews.length !== 0  ?
           <>
-            <div className="grid grid-cols-1 gap-4 w-3/4 mx-auto">
+            <div className="grid grid-cols-1 gap-4 w-full p-2 lg:p-0 lg:w-3/4 mx-auto">
               {
                 reviews.map(review => <AuthorReviews
                   key={review._id}
