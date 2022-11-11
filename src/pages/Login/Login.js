@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { setAuthToken } from '../../Api/Auth';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
@@ -28,27 +27,9 @@ const Login = () => {
       .then((result) => {
         const { user } = result;
         console.log(user.email);
-
-        const currentUser = {
-          email: user.email
-        }
-        // get jwt token
-        fetch('https://cloud-kitchen-assignment-server.vercel.app/jwt', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json'
-          },
-          body: JSON.stringify(currentUser)
-        })
-          .then(res => res.json())
-          .then(data => {
-            console.log(data);
-            // save token to local storage
-            localStorage.setItem('authToken', data.token);
-            navigate(from, { replace: true });
-          });
-        form.reset();
-        toast.success('Successfully logged in');
+          form.reset();
+          toast.success('Successfully logged in');
+          navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
@@ -61,10 +42,6 @@ const Login = () => {
       .then((result) => {
         const { user } = result;
         console.log(user);
-
-        setAuthToken(user);
-
-        navigate(from, { replace: true });
         toast.success('Google Sign in Successful');
         navigate(from, { replace: true });
       })

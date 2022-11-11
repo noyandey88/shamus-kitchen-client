@@ -5,34 +5,15 @@ import useTitle from '../../Hooks/useTitle';
 import AuthorReviews from '../AuthorReviews/AuthorReviews';
 
 const MyReviews = () => {
-  const { user, logOutUser } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
-
-  const logOut = () => {
-    logOutUser()
-      .then(() => {
-
-      })
-      .catch((error) => {
-        console.log(error)
-      })
-  }
 
   // update page title
   useTitle('My Reviews');
 
   useEffect(() => {
-    fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem('authToken')}`
-      }
-    })
-      .then(res => {
-        if (res.status === 401 || res.status === 403) {
-          logOut();
-        }
-        return res.json()
-      })
+    fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews?email=${user?.email}`)
+      .then(res => res.json())
       .then(data => {
         console.log(data);
         setReviews(data);

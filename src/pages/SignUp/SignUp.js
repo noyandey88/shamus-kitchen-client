@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
-import { setAuthToken } from '../../Api/Auth';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
@@ -27,10 +26,7 @@ const SignUp = () => {
     createUser(userInfo.UserEmail, userInfo.UserPassword)
       .then((result) => {
         const { user } = result;
-        console.log(user);
-
-        setAuthToken(user);
-        
+        console.log(user);        
         // update user profile
         updateUserProfile(userInfo.UserName, userInfo.photoUrl)
           .then(() => {
@@ -54,7 +50,6 @@ const SignUp = () => {
       .then((result) => {
         const { user } = result;
         console.log(user);
-        setAuthToken(user);
         toast.success('Google Sign Up Successful');
     })
       .catch((error) => {

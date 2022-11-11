@@ -12,7 +12,7 @@ const Reviews = ({ id }) => {
         const filteredReviews = data.filter(review => review.serviceId === id);
         setPostedReviews(filteredReviews);
       })
-  }, [id]);
+  }, []);
 
   return (
     <div>

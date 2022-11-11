@@ -37,7 +37,7 @@ const Service = ({ service }) => {
         </p>
 
         <div className="my-2">
-          <p className="text-xl font-semibold text-gray-700">Price: <spanc className="text-orange-500 font-bold">{price}$</spanc></p>
+          <p className="text-xl font-semibold text-gray-700">Price: <span className="text-orange-500 font-bold">{price}$</span></p>
           <p className="text-xl font-medium text-gray-700">Ratings: {ratings}</p>
         </div>
 
