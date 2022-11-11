@@ -78,7 +78,7 @@ const Header = () => {
           className="inline-flex items-center lg:mx-auto"
         >
           <IoRestaurantSharp />
-          <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+          <span className="ml-2 text-xs lg:text-xl font-bold tracking-wide text-gray-800 uppercase">
             Shamu's Kitchen
           </span>
         </Link>

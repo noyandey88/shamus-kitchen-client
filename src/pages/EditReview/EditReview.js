@@ -7,9 +7,9 @@ import useTitle from '../../Hooks/useTitle';
 const EditReview = () => {
   const review = useLoaderData().data;
   const { _id } = review;
-  // console.log(_id)
+
   useTitle('Edit Review');
-  // console.log(review);
+
   const handleUpdateReview = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -18,7 +18,7 @@ const EditReview = () => {
     }
     console.log(updatedText);
 
-    fetch(`http://localhost:5000/reviews/${_id}`, {
+    fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews/${_id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json'
