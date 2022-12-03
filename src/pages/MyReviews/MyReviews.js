@@ -12,7 +12,11 @@ const MyReviews = () => {
   useTitle('My Reviews');
 
   useEffect(() => {
-    fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews?email=${user?.email}`)
+    fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews/user?email=${user?.email}`, {
+      headers:{
+        authorization: `bearer ${localStorage.getItem('kitchen-token')}`
+      }
+    })
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -47,7 +51,7 @@ const MyReviews = () => {
           <>
             <div className="grid grid-cols-1 gap-4 w-full p-2 lg:p-0 lg:w-3/4 mx-auto">
               {
-                reviews.map(review => <AuthorReviews
+                reviews?.map(review => <AuthorReviews
                   key={review._id}
                   review={review}
                   handleDeleteReview={handleDeleteReview}

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { saveUserWithToken } from '../../Api/Auth';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
@@ -31,6 +32,7 @@ const SignUp = () => {
         updateUserProfile(userInfo.UserName, userInfo.photoUrl)
           .then(() => {
             toast.success('User Updated')
+            saveUserWithToken(user);
           })
           .catch((error) => {
             toast.error(error.message);

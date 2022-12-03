@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { saveUserWithToken } from '../../Api/Auth';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
@@ -27,9 +28,10 @@ const Login = () => {
       .then((result) => {
         const { user } = result;
         console.log(user.email);
-          form.reset();
-          toast.success('Successfully logged in');
-          navigate(from, { replace: true });
+        form.reset();
+        saveUserWithToken(user);
+        toast.success('Successfully logged in');
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
