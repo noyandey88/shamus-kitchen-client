@@ -27,9 +27,9 @@ const Login = () => {
     loginUser(userInfo.email, userInfo.password)
       .then((result) => {
         const { user } = result;
+        saveUserWithToken(user);
         console.log(user.email);
         form.reset();
-        saveUserWithToken(user);
         toast.success('Successfully logged in');
         navigate(from, { replace: true });
       })
@@ -43,6 +43,7 @@ const Login = () => {
     loginWithGoogle()
       .then((result) => {
         const { user } = result;
+        saveUserWithToken(user);
         console.log(user);
         toast.success('Google Sign in Successful');
         navigate(from, { replace: true });
