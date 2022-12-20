@@ -1,12 +1,13 @@
 import { Textarea } from 'flowbite-react';
 import React from 'react';
 import toast from 'react-hot-toast';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import useTitle from '../../Hooks/useTitle';
 
 const EditReview = () => {
   const review = useLoaderData().data;
   const { _id } = review;
+  const navigate = useNavigate();
 
   useTitle('Edit Review');
 
@@ -31,6 +32,9 @@ const EditReview = () => {
         if (data.updated.modifiedCount) {
           toast.success('Review Updated');
           form.reset();
+          navigate('/myreviews');
+        } else {
+          toast.error('Please update the text first')
         }
       });
   }

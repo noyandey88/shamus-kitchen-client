@@ -21,7 +21,7 @@ const Service = ({ service }) => {
       <PhotoView src={imageUrl}>
       <img
         src={imageUrl}
-        className="object-cover w-full h-64"
+        className="object-cover w-full h-64 cursor-pointer"
         alt=""
       />
       </PhotoView>
