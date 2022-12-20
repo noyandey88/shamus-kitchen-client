@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { saveUserWithToken } from '../../Api/Auth';
+import Spinner from '../../components/Spinner/Spinner';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
@@ -17,7 +18,7 @@ const Login = () => {
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
 
-  const { loginUser, loginWithGoogle } = useContext(AuthContext);
+  const { loginUser, loginWithGoogle, loading, setLoading } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,15 +28,17 @@ const Login = () => {
     loginUser(userInfo.email, userInfo.password)
       .then((result) => {
         const { user } = result;
-        saveUserWithToken(user);
         console.log(user.email);
+        saveUserWithToken(user);
         form.reset();
         toast.success('Successfully logged in');
+        setLoading(false);
         navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
         toast.error(error.message);
+        setLoading(false);
       })
   };
 
@@ -43,16 +46,23 @@ const Login = () => {
     loginWithGoogle()
       .then((result) => {
         const { user } = result;
-        saveUserWithToken(user);
         console.log(user);
+        saveUserWithToken(user);
         toast.success('Google Sign in Successful');
+        setLoading(false);
         navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
         toast.error(error.message);
+        setLoading(false);
       })
   };
+
+  // spinner for loading
+  if (loading) {
+    return <Spinner/>
+  }
 
   return (
     <div className="flex justify-center my-4">

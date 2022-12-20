@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import Spinner from '../../components/Spinner/Spinner';
 import Review from '../Review/Review';
 
 const Reviews = ({ id }) => {
+  const [loading, setLoading] = useState(true);
   const [postedReviews, setPostedReviews] = useState([]);
   useEffect(() => {
+    setLoading(true);
     fetch('https://cloud-kitchen-assignment-server.vercel.app/reviews')
       .then(res => res.json())
       .then(data => {
@@ -11,8 +14,16 @@ const Reviews = ({ id }) => {
         // setPostedReviews(data)
         const filteredReviews = data.filter(review => review.serviceId === id);
         setPostedReviews(filteredReviews);
+        setLoading(false);
+      }).catch(error => {
+        console.error(error.message);
+        setLoading(false);
       })
   }, []);
+
+  if (loading) {
+    return <Spinner/>
+  }
 
   return (
     <div>

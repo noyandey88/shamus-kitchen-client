@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { saveUserWithToken } from '../../Api/Auth';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
 const SignUp = () => {
+
+  const navigate = useNavigate();
 
   const [userInfo, setUserInfo] = useState({
     UserName: '',
@@ -33,6 +35,7 @@ const SignUp = () => {
           .then(() => {
             toast.success('User Updated')
             saveUserWithToken(user);
+            navigate('/');
           })
           .catch((error) => {
             toast.error(error.message);
@@ -53,12 +56,12 @@ const SignUp = () => {
         const { user } = result;
         console.log(user);
         toast.success('Google Sign Up Successful');
-    })
+      })
       .catch((error) => {
         console.error(error);
         toast.error(error.message);
-    })
-  }
+      })
+  };
 
   return (
     <div>

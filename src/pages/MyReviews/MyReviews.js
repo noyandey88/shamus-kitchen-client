@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import Spinner from '../../components/Spinner/Spinner';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 import AuthorReviews from '../AuthorReviews/AuthorReviews';
 
 const MyReviews = () => {
+  const [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
@@ -12,6 +14,7 @@ const MyReviews = () => {
   useTitle('My Reviews');
 
   useEffect(() => {
+    setLoading(true);
     fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews/user?email=${user?.email}`, {
       headers:{
         authorization: `bearer ${localStorage.getItem('kitchen-token')}`
@@ -21,11 +24,16 @@ const MyReviews = () => {
       .then(data => {
         console.log(data);
         setReviews(data);
+        setLoading(false);
+      }).catch((error) => {
+        console.error(error.message);
+        setLoading(false);
       })
   }, [user?.email]);
 
   // delete review button
   const handleDeleteReview = (id) => {
+    setLoading(true);
     // console.log(id);
     fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews/${id}`, {
       method: 'DELETE'
@@ -33,13 +41,20 @@ const MyReviews = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
+        setLoading(false);
         if (data.deleted.deletedCount) {
           toast.success('Successfully Deleted Review');
-        };
+        }
         const remaining = reviews.filter(review => review._id !== id);
         setReviews(remaining);
+      }).catch(error => {
+        console.error(error.message);
       })
   };
+
+  if (loading) {
+    return <Spinner/>
+  }
 
   return (
     <div>

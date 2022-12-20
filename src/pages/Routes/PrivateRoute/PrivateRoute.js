@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+import Spinner from '../../../components/Spinner/Spinner';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const PrivateRoute = ({ children }) => {
@@ -7,11 +8,7 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center">
-        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-orange-500"></div>
-      </div>
-    )
+    return <Spinner></Spinner>
   };
 
   if (user && user.uid) {
