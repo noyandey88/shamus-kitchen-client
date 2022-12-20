@@ -28,7 +28,6 @@ export const router = createBrowserRouter([
       },
       {
         path: '/services',
-        loader: () => fetch('https://cloud-kitchen-assignment-server.vercel.app/services'),
         element: <AllServices></AllServices>
       },
       {
