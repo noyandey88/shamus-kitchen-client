@@ -32,7 +32,7 @@ const Service = ({ service }) => {
         >
           {name}
         </h2>
-        <p className="mb-2 text-gray-700">
+        <p className="mb-2 text-gray-700 text-sm text-justify">
           {description.slice(0, 100)}...
         </p>
 

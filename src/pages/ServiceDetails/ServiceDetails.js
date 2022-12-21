@@ -69,7 +69,7 @@ const ServiceDetails = () => {
             <h5 className="mb-3 text-2xl font-extrabold leading-none sm:text-2xl">
               Dish Name: {name}
             </h5>
-            <p className="mb-5 text-gray-800">
+            <p className="mb-5 text-gray-800 text-justify">
               {description}
             </p>
             <h4 className="text-2xl font-bold">Price: <span className="text-orange-500">{price}$</span></h4>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const DownloadApp = () => {
   return (
-    <div className="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-10">
+    <div className="px-4 py-10 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 lg:py-10">
       <div className="flex flex-col items-center justify-between w-full mb-10 lg:flex-row">
         <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">
           <div className="max-w-xl mb-6">
@@ -21,7 +21,7 @@ const DownloadApp = () => {
           </div>
         </div>
         <div className="flex items-center justify-center lg:w-1/2">
-          <div className="w-3/4">
+          <div className="w-full">
             <img className="object-cover w-full h-full shadow-lg rounded-sm" src="https://i.ibb.co/0ZqKBPL/abillion-b-MTl6u-FMONg-unsplash.jpg" alt="" />
           </div>
         </div>

@@ -15,7 +15,7 @@ const MyReviews = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews/user?email=${user?.email}`, {
+    fetch(`http://localhost:5000/customer/reviews?email=${user?.email}`, {
       headers: {
         authorization: `bearer ${localStorage.getItem('kitchen-token')}`
       }
