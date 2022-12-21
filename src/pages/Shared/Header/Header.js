@@ -4,29 +4,23 @@ import { IoRestaurantSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { FaUserCircle } from "react-icons/fa";
-import Spinner from '../../../components/Spinner/Spinner';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { logOutUser, user, loading, setLoading } = useContext(AuthContext);
+  const { logOutUser, user } = useContext(AuthContext);
   console.log(user);
 
   const handleLogOut = () => {
     logOutUser()
       .then(() => {
         toast.success('Log out user successful');
-        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
         toast.error(error.message);
-        setLoading(false);
       });
   };
 
-  if (loading) {
-    return <Spinner/>
-  }
   
   return (
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 shadow-sm">

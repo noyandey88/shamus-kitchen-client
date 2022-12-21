@@ -15,7 +15,7 @@ const MyReviews = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/customer/reviews?email=${user?.email}`, {
+    fetch(`https://cloud-kitchen-assignment-server.vercel.app/customer/reviews?email=${user?.email}`, {
       headers: {
         authorization: `bearer ${localStorage.getItem('kitchen-token')}`
       }
@@ -53,34 +53,41 @@ const MyReviews = () => {
       })
   };
 
-  if (loading) {
-    return <Spinner />
-  }
+  // if (loading) {
+  //   return <Spinner />
+  // }
 
   return (
-    <div>
-      <div className="mt-2 mb-4">
-        <h1 className="text-center text-4xl font-bold">My <span className="text-orange-500">Reviews:</span> </h1>
-      </div>
-      {
-        reviews.length === 0 ?
-          <div className="text-center">
-            <h2 className="text-2xl font-semibold">No <span className="text-orange-500 font-bold">reviews</span> were added</h2>
+    !loading ?
+      <>
+        <div>
+          <div className="mt-2 mb-4">
+            <h1 className="text-center text-4xl font-bold">My <span className="text-orange-500">Reviews:</span> </h1>
           </div>
-          :
-          <>
-            <div className="grid grid-cols-1 gap-4 w-full p-2 lg:p-0 lg:w-3/4 mx-auto">
-              {
-                reviews?.map(review => <AuthorReviews
-                  key={review._id}
-                  review={review}
-                  handleDeleteReview={handleDeleteReview}
-                ></AuthorReviews>)
-              }
-            </div>
-          </>
-      }
-    </div>
+          {
+            reviews.length === 0 ?
+              <div className="text-center">
+                <h2 className="text-2xl font-semibold">No <span className="text-orange-500 font-bold">reviews</span> were added</h2>
+              </div>
+              :
+              <>
+                <div className="grid grid-cols-1 gap-4 w-full p-2 lg:p-0 lg:w-3/4 mx-auto">
+                  {
+                    reviews?.map(review => <AuthorReviews
+                      key={review._id}
+                      review={review}
+                      handleDeleteReview={handleDeleteReview}
+                    ></AuthorReviews>)
+                  }
+                </div>
+              </>
+          }
+        </div>
+      </>
+      :
+      <>
+          <Spinner/>
+      </>
   );
 };
 

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { saveUserWithToken } from '../../Api/Auth';
+import Spinner from '../../components/Spinner/Spinner';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
@@ -18,7 +19,7 @@ const SignUp = () => {
 
   useTitle('Sign Up');
 
-  const { createUser, updateUserProfile, loginWithGoogle } = useContext(AuthContext);
+  const { createUser, updateUserProfile, loginWithGoogle, loading, setLoading } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,6 +36,7 @@ const SignUp = () => {
           .then(() => {
             toast.success('User Updated')
             saveUserWithToken(user);
+            setLoading(false);
             navigate('/');
           })
           .catch((error) => {
@@ -46,7 +48,8 @@ const SignUp = () => {
       })
       .catch((error) => {
         console.error(error);
-        toast.error(error.message)
+        toast.error(error.message);
+        setLoading(false);
       })
   };
 
@@ -56,12 +59,20 @@ const SignUp = () => {
         const { user } = result;
         console.log(user);
         toast.success('Google Sign Up Successful');
+        setLoading(false);
+        navigate('/');
       })
       .catch((error) => {
         console.error(error);
         toast.error(error.message);
+        setLoading(false);
       })
   };
+
+  // spinner for loading
+  if (loading) {
+    return <Spinner/>
+  }
 
   return (
     <div>
