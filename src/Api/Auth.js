@@ -36,7 +36,7 @@ export const saveUserWithToken = (user) => {
   })
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      // console.log(data);
 
       // save user to localStorage
       localStorage.setItem('kitchen-token', data.token);

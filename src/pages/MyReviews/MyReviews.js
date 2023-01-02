@@ -7,7 +7,7 @@ import AuthorReviews from '../AuthorReviews/AuthorReviews';
 
 const MyReviews = () => {
   const [loading, setLoading] = useState(true);
-  const { user } = useContext(AuthContext);
+  const { user, logOutUser } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
 
   // update page title
@@ -20,7 +20,16 @@ const MyReviews = () => {
         authorization: `bearer ${localStorage.getItem('kitchen-token')}`
       }
     })
-      .then(res => res.json())
+      .then(res => {
+        if (res.status === 401 || res.status === 403) {
+          return logOutUser().then(() => {
+            toast.error("Session expired. Please login again.")
+          }).catch((err) => {
+            console.error(err);
+          })
+        }
+        return res.json()
+      })
       .then(data => {
         console.log(data);
         setReviews(data);
@@ -29,13 +38,13 @@ const MyReviews = () => {
         console.error(error.message);
         setLoading(false);
       })
-  }, [user?.email]);
+  }, [user?.email, logOutUser]);
 
   // delete review button
   const handleDeleteReview = (id) => {
     setLoading(true);
     // console.log(id);
-    fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews/${id}`, {
+    fetch(`https://cloud-kitchen-assignment-server.vercel.app/review/delete/${id}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
@@ -86,7 +95,7 @@ const MyReviews = () => {
       </>
       :
       <>
-          <Spinner/>
+        <Spinner />
       </>
   );
 };

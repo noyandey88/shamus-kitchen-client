@@ -19,7 +19,7 @@ const EditReview = () => {
     }
     console.log(updatedText);
 
-    fetch(`https://cloud-kitchen-assignment-server.vercel.app/reviews/${_id}`, {
+    fetch(`https://cloud-kitchen-assignment-server.vercel.app/review/update/${_id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json'

@@ -15,10 +15,10 @@ const Services = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`https://cloud-kitchen-assignment-server.vercel.app/services?size=${size}`)
+    fetch(`https://cloud-kitchen-assignment-server.vercel.app/food/services?size=${size}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data.data);
+        console.log(data);
         setDishServices(data.data);
         setLoading(false);
       }).catch(error => {
