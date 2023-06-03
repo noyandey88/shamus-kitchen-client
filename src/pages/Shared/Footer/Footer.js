@@ -13,14 +13,14 @@ const Footer = () => {
             title="Company"
             className="inline-flex items-center"
           >
-            <IoRestaurantSharp/>
+            <IoRestaurantSharp />
             <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
               Shamu's Kitchen
             </span>
           </Link>
           <div className="mt-6 lg:max-w-sm">
             <p className="text-sm text-gray-800">
-              I am Shamu. I was build this Shamu's kitchen as a cloud kitchen platform a years ago. People can orders many kinds of special foods from me.
+              I am Shamu. I was built this Shamu's kitchen as a cloud kitchen platform a years ago. People can orders many kinds of special foods from me.
             </p>
           </div>
         </div>
@@ -36,7 +36,7 @@ const Footer = () => {
               title="Our phone"
               className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
-             +880 960-123-5021
+              +880 960-123-5021
             </Link>
           </div>
           <div className="flex">
