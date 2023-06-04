@@ -40,9 +40,9 @@ const Services = () => {
       <Spinner />
       :
       <>
-        <div>
+        <div className="mt-20 mb-4">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-orange-500 uppercase">Foods In My Kitchen</h1>
+            <h1 className="text-3xl font-bold">Foods In My <span className="text-orange-500">Kitchen</span></h1>
           </div>
           <div className="px-4 py-12 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 lg:py-12">
             <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">

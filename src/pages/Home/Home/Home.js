@@ -12,20 +12,19 @@ import Ingredients from '../../../components/ingredients/Ingredients';
 import KitchenChiefs from '../../../components/kitchenChiefs/KitchenChiefs';
 
 const Home = () => {
-
   useTitle('Home');
 
   return (
     <div>
-      <Banner></Banner>
-      <Services></Services>
-      <TopReviewed></TopReviewed>
-      <DownloadApp></DownloadApp>
-      <Featured />
+      <Banner />
+      <Services />
+      <TopReviewed />
       <Ingredients />
+      <Featured />
       <Review />
       <KitchenChiefs />
       <Faq />
+      <DownloadApp />
       <Subscribe />
     </div>
   );
