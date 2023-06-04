@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 export default function Review() {
   return (
     <section className="bg-white dark:bg-gray-900">
