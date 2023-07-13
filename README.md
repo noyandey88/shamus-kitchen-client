@@ -52,6 +52,7 @@ The repository includes the following sections:
 - `/src/firebase`: Contains the Firebase configuration and initialization files.
 - `/src/contexts`: Contains the context files used for managing global application state.
 - `/src/assets`: Contains additional assets such as images, fonts, or other media files.
+- `/src/api`: Contains the API integration files for communicating with external services.
 
 These sections are organized to provide a modular and structured development approach, ensuring separation of concerns and maintainability of the codebase.
 
