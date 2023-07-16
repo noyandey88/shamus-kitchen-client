@@ -20,7 +20,7 @@ const Footer = () => {
           </Link>
           <div className="mt-6 lg:max-w-sm">
             <p className="text-sm text-gray-800">
-              I am Shamu. I was built this Shamu's kitchen as a cloud kitchen platform a years ago. People can orders many kinds of special foods from me.
+              Experience culinary excellence at Shamu's Kitchen, your gateway to a realm of flavor and innovation. Order now to indulge in a symphony of exquisite dishes crafted from the finest ingredients. Elevate your dining experience and savor the convenience of our seamless delivery service. Join us and discover a world where epicurean dreams come true.
             </p>
           </div>
         </div>
