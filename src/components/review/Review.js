@@ -1,15 +1,32 @@
+import { motion } from "framer-motion"
+
 export default function Review() {
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="container py-10 mx-auto">
-        <h1 className="text-2xl font-bold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
+        <motion.h1
+          initial={{ x: -100 }}
+          whileInView={{ x: 0 }}
+          transition={{ duration: 1, type: "spring", stiffness: 60 }}
+          viewport={{ once: true }}
+          className="text-2xl font-bold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
           What our <span className="text-orange-500 ">Customers</span> say
-        </h1>
-        <p className="max-w-2xl mx-auto mt-6 text-center text-gray-500 dark:text-gray-300">
+        </motion.h1>
+        <motion.p
+          initial={{ x: -100 }}
+          whileInView={{ x: 0 }}
+          transition={{ duration: 1, type: "spring", stiffness: 50 }}
+          viewport={{ once: true }}
+          className="max-w-2xl mx-auto mt-6 text-center text-gray-500 dark:text-gray-300">
           We value the trust our customers place in us, and their feedback helps us continuously improve and exceed expectations. From their genuine insights, you can gain valuable insights into how our solutions have positively impacted their lives and businesses.
-        </p>
+        </motion.p>
         <div className="grid grid-cols-1 gap-8 mx-auto mt-8 lg:grid-cols-2 xl:mt-10 max-w-7xl">
-          <div className="p-6 bg-gray-100 rounded-lg dark:bg-gray-800 md:p-8">
+          <motion.div
+            initial={{ x: -100 }}
+            whileInView={{ x: 0 }}
+            transition={{ duration: 1, type: "spring", stiffness: 40 }}
+            viewport={{ once: true }}
+            className="p-6 bg-gray-100 rounded-lg dark:bg-gray-800 md:p-8">
             <p className="leading-loose text-gray-500 dark:text-gray-300">
               “I opted for the chef's recommended dish, and I was blown away. The presentation was stunning, and the flavors were nothing short of extraordinary. Each bite was a harmonious blend of textures and tastes, leaving me craving more.”.
             </p>
@@ -20,8 +37,13 @@ export default function Review() {
                 <span className="text-sm text-gray-500 dark:text-gray-300">CTO, Robert Consultency</span>
               </div>
             </div>
-          </div>
-          <div className="p-6 bg-gray-100 rounded-lg dark:bg-gray-800 md:p-8">
+          </motion.div>
+          <motion.div
+            initial={{ x: -100 }}
+            whileInView={{ x: 0 }}
+            transition={{ duration: 1, type: "spring", stiffness: 30 }}
+            viewport={{ once: true }}
+            className="p-6 bg-gray-100 rounded-lg dark:bg-gray-800 md:p-8">
             <p className="leading-loose text-gray-500 dark:text-gray-300">
               "If you're looking for a hassle-free way to enjoy restaurant-quality food in the comfort of your own home, I highly recommend giving [Food Delivery Service] a try. They have certainly earned a spot as my go-to choice for delicious and convenient dining."
             </p>
@@ -32,7 +54,7 @@ export default function Review() {
                 <span className="text-sm text-gray-500 dark:text-gray-300">Marketing Manager at Stech</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
