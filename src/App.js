@@ -6,7 +6,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 
 function App() {
   return (
-    <div>
+    <div className="container mx-auto px-4 lg:px-0">
       <RouterProvider router={router}></RouterProvider>
       <Toaster />
     </div>

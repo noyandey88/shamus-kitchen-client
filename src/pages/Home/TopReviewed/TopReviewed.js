@@ -2,9 +2,9 @@ import React from 'react';
 
 const TopReviewed = () => {
   return (
-    <div className="px-4 pb-12 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 lg:pb-20">
-      <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-        <h2 className="max-w-lg mb-6 font-sans font-bold leading-none tracking-tight sm:text-3xl md:mx-auto text-4xl">
+    <div className="pb-12 mx-auto sm:max-w-xl md:max-w-full lg:pb-20">
+      <div className="max-w-xl mb-10 md:mx-auto text-center lg:max-w-2xl md:mb-12">
+        <h2 className="max-w-lg mb-6 font-sans font-bold leading-none tracking-tight sm:text-3xl md:mx-auto text-3xl">
           <span className="relative inline-block">
             <span className="relative">Top</span>
           </span>{' '}

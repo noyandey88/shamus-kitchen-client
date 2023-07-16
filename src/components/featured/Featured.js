@@ -3,48 +3,72 @@ import { Link } from "react-router-dom";
 export default function Featured() {
   return (
     <section>
-      <div className="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-4">
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
-          <div className="grid p-6 bg-gray-100 rounded place-content-center sm:p-8">
-            <div className="max-w-md mx-auto text-center lg:text-left">
-              <header>
-                <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">Featured <span className="text-orange-500">Foods</span></h2>
-                <p className="mt-4 text-gray-500">
-                  Visit our site to get updated to our products and discounts.
+      <div className="py-8 mx-auto sm:py-12">
+        <header className="text-center">
+          <h2 className="text-xl font-bold text-gray-900 sm:text-3xl">
+            Our Featured <span className="text-orange-500">Foods</span>
+          </h2>
+          <p className="max-w-md mx-auto mt-4 text-gray-500">
+            Savor the taste of our featured foods, where culinary artistry meets flavor perfection            </p>
+        </header>
+        <ul className="grid gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-4">
+          <li>
+            <Link to="/" className="block overflow-hidden group">
+              <img src="https://images.unsplash.com/photo-1555126634-323283e090fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZGlzaHxlbnwwfDF8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="" className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]" />
+              <div className="relative pt-3 bg-white">
+                <h3 className="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                  Buldak Bokkeum Myeon
+                </h3>
+                <p className="mt-2">
+                  <span className="sr-only"> Regular Price </span>
+                  <span className="tracking-wider text-gray-900"> £10.00 USD </span>
                 </p>
-              </header>
-              <Link to="/" className="inline-block px-12 py-3 mt-8 text-sm font-medium text-white transition bg-orange-500 border rounded hover:shadow focus:outline-none focus:ring">
-                Explore
-              </Link>
-            </div>
-          </div>
-          <div className="lg:col-span-2 lg:py-8">
-            <ul className="grid grid-cols-2 gap-4">
-              <li>
-                <Link to="/" className="block group">
-                  <img src="https://images.pexels.com/photos/2297961/pexels-photo-2297961.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="food" className="object-cover w-full rounded aspect-square" />
-                  <div className="mt-3">
-                    <h3 className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
-                      New Dish
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-700">$50</p>
-                  </div>
-                </Link>
-              </li>
-              <li>
-                <Link to="/" className="block group">
-                  <img src="https://images.pexels.com/photos/1346381/pexels-photo-1346381.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="food" className="object-cover w-full rounded aspect-square" />
-                  <div className="mt-3">
-                    <h3 className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
-                      New Dish
-                    </h3>
-                    <p className="mt-1 text-sm text-gray-700">$40</p>
-                  </div>
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
+              </div>
+            </Link>
+          </li>
+          <li>
+            <Link to="/" className="block overflow-hidden group">
+              <img src="https://plus.unsplash.com/premium_photo-1671559021681-28cecb3631a4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDh8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60" alt="" className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]" />
+              <div className="relative pt-3 bg-white">
+                <h3 className="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                  Epicurean Enclave
+                </h3>
+                <p className="mt-2">
+                  <span className="sr-only"> Regular Price </span>
+                  <span className="tracking-wider text-gray-900"> £14.00 USD </span>
+                </p>
+              </div>
+            </Link>
+          </li>
+          <li>
+            <Link to="/" className="block overflow-hidden group">
+              <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZGlzaHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="" className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]" />
+              <div className="relative pt-3 bg-white">
+                <h3 className="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                  Culinary Reserve
+                </h3>
+                <p className="mt-2">
+                  <span className="sr-only"> Regular Price </span>
+                  <span className="tracking-wider text-gray-900"> £11.00 USD </span>
+                </p>
+              </div>
+            </Link>
+          </li>
+          <li>
+            <Link to="/" className="block overflow-hidden group">
+              <img src="https://images.unsplash.com/photo-1564671165093-20688ff1fffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGRpc2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="" className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]" />
+              <div className="relative pt-3 bg-white">
+                <h3 className="text-xs text-gray-700 group-hover:underline group-hover:underline-offset-4">
+                  Gastronomia Eterna
+                </h3>
+                <p className="mt-2">
+                  <span className="sr-only"> Regular Price </span>
+                  <span className="tracking-wider text-gray-900"> £16.00 USD </span>
+                </p>
+              </div>
+            </Link>
+          </li>
+        </ul>
       </div>
     </section>
   )

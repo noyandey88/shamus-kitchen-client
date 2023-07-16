@@ -9,7 +9,7 @@ import './Banner.css';
 
 const Banner = () => {
   return (
-    <div className="h-56 sm:h-64 xl:h-[32rem] 2xl:h-96 m-2 md:m-6">
+    <div className="h-56 sm:h-64 xl:h-[32rem] 2xl:h-96">
       <Carousel>
         <div className='relative flex justify-center items-center'>
           <div className="carousel-img w-full">

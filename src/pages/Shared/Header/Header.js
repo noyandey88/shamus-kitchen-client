@@ -23,7 +23,7 @@ const Header = () => {
 
   
   return (
-    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 shadow-sm">
+    <div className="py-5 mx-auto sm:max-w-xl md:max-w-full shadow-sm">
       <div className="relative flex grid items-center grid-cols-2 lg:grid-cols-3">
         <ul className="flex items-center hidden space-x-8 lg:flex">
           <li>

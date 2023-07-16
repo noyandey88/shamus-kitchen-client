@@ -12,7 +12,7 @@ export default function Ingredients() {
             Handpicked fruits, vegetables, and herbs sourced from local farms to ensure the highest quality and flavor in your dishes. Tender cuts of beef, chicken, pork, and seafood that will elevate your menu and leave your customers craving for more.
           </p>
           <div className="mt-4 sm:mt-8">
-            <Link to="/" className="inline-block rounded-full bg-orange-500 px-12 py-3 text-sm font-medium text-white transition hover:bg-orange-700 focus:outline-none focus:ring focus:ring-yellow-400">
+            <Link to="/services" className="inline-block rounded-full bg-orange-500 px-12 py-3 text-sm font-medium text-white transition hover:bg-orange-700 focus:outline-none focus:ring focus:ring-yellow-400">
               Explore
             </Link>
           </div>

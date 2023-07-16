@@ -1,7 +1,7 @@
 export default function Review() {
   return (
     <section className="bg-white dark:bg-gray-900">
-      <div className="container px-6 py-10 mx-auto">
+      <div className="container py-10 mx-auto">
         <h1 className="text-2xl font-bold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">
           What our <span className="text-orange-500 ">Customers</span> say
         </h1>
