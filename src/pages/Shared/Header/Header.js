@@ -4,6 +4,7 @@ import { IoRestaurantSharp } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { FaUserCircle } from "react-icons/fa";
+import { motion } from 'framer-motion';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,9 +22,13 @@ const Header = () => {
       });
   };
 
-  
+
   return (
-    <div className="py-5 mx-auto sm:max-w-xl md:max-w-full shadow-sm">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, type: "spring", stiffness: 50 }}
+      className="py-5 mx-auto sm:max-w-xl md:max-w-full shadow-sm">
       <div className="relative flex grid items-center grid-cols-2 lg:grid-cols-3">
         <ul className="flex items-center hidden space-x-8 lg:flex">
           <li>
@@ -236,7 +241,7 @@ const Header = () => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

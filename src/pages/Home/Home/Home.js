@@ -15,7 +15,7 @@ const Home = () => {
   useTitle('Home');
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <Banner />
       <Services />
       <TopReviewed />

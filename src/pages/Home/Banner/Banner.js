@@ -6,10 +6,15 @@ import img3 from '../../../assets/banner/cooking-3.jpg';
 import img4 from '../../../assets/banner/cooking-4.jpg';
 import img5 from '../../../assets/banner/cooking-5.jpg';
 import './Banner.css';
+import { motion } from 'framer-motion';
 
 const Banner = () => {
   return (
-    <div className="h-56 sm:h-64 xl:h-[32rem] 2xl:h-96">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5, type: "spring", stiffness: 50 }}
+      className="h-56 sm:h-64 xl:h-[32rem] 2xl:h-96">
       <Carousel>
         <div className='relative flex justify-center items-center'>
           <div className="carousel-img w-full">
@@ -77,7 +82,7 @@ const Banner = () => {
           </div>
         </div>
       </Carousel>
-    </div>
+    </motion.div>
   );
 };
 
